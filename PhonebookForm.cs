@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -63,7 +64,19 @@ namespace PhoneBookApp
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
-                    dataGridView1.DataSource = dataTable;
+                    List<Contact> CantactList = new List<Contact>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        var contact = new Contact()
+                        {
+                            Id = (int)row["Id"],
+                            FullName = (string)row["fullname"],
+                            PhoneNumber = (string)row["phonenumber"],
+                            Birthdate = (DateTime)row["birthdate"]
+                        };
+                        CantactList.Add(contact);
+                    }
+                    dataGridView1.DataSource = CantactList;
                 }
             }
             catch (Exception ex)
