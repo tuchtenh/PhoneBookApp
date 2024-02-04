@@ -72,7 +72,7 @@
             this.textBoxPhoneNumber.MaxLength = 20;
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(191, 20);
-            this.textBoxPhoneNumber.TabIndex = 3;
+            this.textBoxPhoneNumber.TabIndex = 1;
             // 
             // label1
             // 
@@ -111,7 +111,7 @@
             this.okButton.Location = new System.Drawing.Point(68, 192);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 8;
+            this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -122,7 +122,7 @@
             this.cancelButton.Location = new System.Drawing.Point(227, 192);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 9;
+            this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -135,7 +135,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(111, 113);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePicker1.TabIndex = 2;
             // 
             // EntryForm
             // 

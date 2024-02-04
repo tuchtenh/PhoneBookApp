@@ -60,7 +60,7 @@
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(348, 256);
+            this.deleteButton.Location = new System.Drawing.Point(447, 256);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 47);
             this.deleteButton.TabIndex = 2;
@@ -82,20 +82,21 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(411, 238);
+            this.dataGridView1.Size = new System.Drawing.Size(510, 238);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.TabStop = false;
             // 
             // PhonebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 326);
+            this.ClientSize = new System.Drawing.Size(534, 326);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(451, 365);
+            this.MinimumSize = new System.Drawing.Size(550, 365);
             this.Name = "PhonebookForm";
             this.Text = "Phonebook";
             this.Load += new System.EventHandler(this.PhonebookForm_Load);

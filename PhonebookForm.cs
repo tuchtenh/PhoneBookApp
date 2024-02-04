@@ -29,28 +29,38 @@ namespace PhoneBookApp
         private void PhonebookForm_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(this.PhonebookForm_FormClosing);
-            try
+            string connectionString = GetConnectionString(_connectionStringName);
+            _connection = new SqlConnection(connectionString);
+            FetchContactDataIntoDataGridView();
+            SetupDataGridViewColumnsForContactData();
+        }
+
+        private void SetupDataGridViewColumnsForContactData()
+        {
+            if (dataGridView1.Columns.Count > 0)
             {
-                string connectionString = GetConnectionString(_connectionStringName);
-                _connection = new SqlConnection(connectionString);
-                LoadDataIntoDataGridView();
-                dataGridView1.Columns[0].Name = "Id";
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].Name = "Full Name";
-                dataGridView1.Columns[1].HeaderText = "Full Name";
-                dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridView1.Columns[2].Name = "Phone Number";
-                dataGridView1.Columns[2].HeaderText = "Phone Number";
-                dataGridView1.Columns[3].Name = "Date of birth";
-                dataGridView1.Columns[3].HeaderText = "Date of birth";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    dataGridView1.Columns[0].Name = "Id";
+                    dataGridView1.Columns[0].Visible = false;
+                    dataGridView1.Columns[1].Name = "Full Name";
+                    dataGridView1.Columns[1].HeaderText = "Full Name";
+                    dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dataGridView1.Columns[2].Name = "Phone Number";
+                    dataGridView1.Columns[2].HeaderText = "Phone Number";
+                    dataGridView1.Columns[3].Name = "Date of birth";
+                    dataGridView1.Columns[3].HeaderText = "Date of birth";
+                    dataGridView1.Columns[3].Width = 70;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
 
-        private void LoadDataIntoDataGridView()
+        private void FetchContactDataIntoDataGridView()
         {
             try
             {
@@ -95,7 +105,7 @@ namespace PhoneBookApp
             {
                 AddContact(entryForm.fullname, entryForm.phonenumber, entryForm.date);
             }
-            LoadDataIntoDataGridView();
+            FetchContactDataIntoDataGridView();
         }
 
         private void AddContact(string contactName, string phoneNumber, DateTime birthDate)
@@ -134,7 +144,7 @@ namespace PhoneBookApp
                 {
                     EditContact(entryForm.fullname, entryForm.phonenumber, entryForm.date);
                 }
-                LoadDataIntoDataGridView();
+                FetchContactDataIntoDataGridView();
             }
             else
             {
@@ -171,7 +181,7 @@ namespace PhoneBookApp
             if (dataGridView1.CurrentRow != null)
             {
                 DeleteContact();
-                LoadDataIntoDataGridView();
+                FetchContactDataIntoDataGridView();
             }
             else
             {
